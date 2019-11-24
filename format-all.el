@@ -686,6 +686,12 @@ Consult the existing formatters for examples of BODY."
   (:modes terraform-mode)
   (:format (format-all--buffer-easy executable "fmt" "-no-color" "-")))
 
+(define-format-all-formatter svelte-format
+    (:executable "svelte-format")
+    (:install "npm install -g --save-dev prettier-plugin-svelte prettier svelte")
+    (:modes svelte-mode)
+    (:format (format-all--buffer-easy executable)))
+
 (defun format-all--please-install (executable installer)
   "Internal helper function for error about missing EXECUTABLE and INSTALLER."
   (concat (format "You need the %S command." executable)
